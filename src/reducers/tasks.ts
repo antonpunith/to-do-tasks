@@ -1,8 +1,8 @@
 // initial state
 const INITIAL_STATE = [
-  { id: 1, text: "task2", completed: false, priority: 3 },
-  { id: 2, text: "task1", completed: false, priority: 2 },
-  { id: 3, text: "task100", completed: false, priority: 1 }
+  { id: 1, text: "Water the plants", completed: false, priority: 2 },
+  { id: 2, text: "Go shopping", completed: false, priority: 3 },
+  { id: 3, text: "Walk the dog", completed: false, priority: 1 }
 ];
 // tasks reducer
 export const tasks = (state = INITIAL_STATE, action: any) => {

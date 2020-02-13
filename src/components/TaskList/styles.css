@@ -1,0 +1,22 @@
+.tasks {
+  margin: 1rem 0;
+  padding: 0;
+}
+.tasks li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: solid 1px #eee;
+  margin-top: -1px;
+}
+.tasks li .completed {
+  text-decoration: line-through;
+}
+.tasks li input {
+  margin: 0 1rem;
+}
+
+.tasks li input[type="number"] {
+  width: 3rem;
+}

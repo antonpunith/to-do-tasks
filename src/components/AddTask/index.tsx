@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+//actions
 import { addTask } from "../../actions";
+// styles
+import "./styles.css";
 
 const AddTask = (props: any) => {
   const { dispatch } = props;
@@ -9,35 +12,42 @@ const AddTask = (props: any) => {
   return (
     <>
       <form
+        className="add-task"
         onSubmit={e => {
           e.preventDefault();
-          dispatch(addTask({ text, priority }));
-          setText("");
-          setPriority(0);
+          if (text.trim()) {
+            dispatch(addTask({ text, priority }));
+            setText("");
+            setPriority(0);
+          }
         }}
       >
-        <input
-          value={text}
-          onChange={e => {
-            setText(e.target.value);
-          }}
-        />
-        <input
-          value={priority}
-          type="number"
-          onChange={e => {
-            setPriority(parseInt(e.target.value));
-          }}
-        />
-        <button type="submit">submit</button>
+        <label>
+          Value
+          <input
+            width={100}
+            value={text}
+            onChange={e => {
+              setText(e.target.value);
+            }}
+            required
+          />
+        </label>
+
+        <label>
+          Priority
+          <input
+            width="2"
+            value={priority}
+            type="number"
+            onChange={e => {
+              setPriority(parseInt(e.target.value));
+            }}
+          />
+        </label>
+
+        <button type="submit">Submit</button>
       </form>
-      <div
-        onClick={() => {
-          dispatch(addTask({ text: "some text" }));
-        }}
-      >
-        Test
-      </div>
     </>
   );
 };

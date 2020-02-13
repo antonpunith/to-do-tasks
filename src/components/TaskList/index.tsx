@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+//actions
 import { toggleCompletion, setPriority } from "../../actions";
+// styles
+import "./styles.css";
 
 const TaskList = (props: any) => {
   const { tasks, dispatch, sort } = props;
@@ -23,27 +26,34 @@ const TaskList = (props: any) => {
   }
 
   return (
-    <>
+    <ul className="tasks">
       {sortedTasks.map((task: any, index: number) => (
-        <li key={index}>
-          {task.text}{" "}
-          <span
-            onClick={() => {
-              dispatch(toggleCompletion(task.id));
-            }}
-          >
-            {task.completed ? "completed" : "to-do"}{" "}
-          </span>
-          <input
-            value={task.priority}
-            type="number"
-            onChange={e =>
-              dispatch(setPriority(task.id, parseInt(e.target.value)))
-            }
-          />
+        <li className="task" key={index}>
+          <div className={task.completed ? "completed" : ""}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onClick={() => {
+                dispatch(toggleCompletion(task.id));
+              }}
+            ></input>
+            {task.text}
+          </div>
+          <div>
+            <label>
+              Priority
+              <input
+                value={task.priority}
+                type="number"
+                onChange={e =>
+                  dispatch(setPriority(task.id, parseInt(e.target.value)))
+                }
+              />
+            </label>
+          </div>
         </li>
       ))}
-    </>
+    </ul>
   );
 };
 
