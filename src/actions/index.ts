@@ -5,4 +5,11 @@ const toggleCompletion = (taskId: number) => {
   };
 };
 
-export { toggleCompletion };
+const sortTask = (field: string) => {
+  return {
+    type: "SORT_TASK",
+    field
+  };
+};
+
+export { toggleCompletion, sortTask };
