@@ -6,11 +6,19 @@ const INITIAL_STATE = [
 ];
 // tasks reducer
 export const tasks = (state = INITIAL_STATE, action: any) => {
+  console.log(action);
   switch (action.type) {
     case "TOGGLE_COMPLETE":
-      return state.map((task: any, index: number) => {
+      return state.map((task: any) => {
         if (action.id === task.id) {
           task.completed = !task.completed;
+        }
+        return task;
+      });
+    case "SET_PRIORITY":
+      return state.map((task: any) => {
+        if (action.id === task.id) {
+          task.priority = action.priority;
         }
         return task;
       });

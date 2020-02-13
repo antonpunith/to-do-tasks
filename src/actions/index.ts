@@ -12,4 +12,13 @@ const sortTask = (field: string) => {
   };
 };
 
-export { toggleCompletion, sortTask };
+const setPriority = (id: number, priority: number) => {
+  console.log(id, priority);
+  return {
+    type: "SET_PRIORITY",
+    id,
+    priority
+  };
+};
+
+export { toggleCompletion, sortTask, setPriority };

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleCompletion } from "../../actions";
+import { toggleCompletion, setPriority } from "../../actions";
 
 const TaskList = (props: any) => {
   const { tasks, dispatch, sort } = props;
@@ -25,13 +25,22 @@ const TaskList = (props: any) => {
   return (
     <>
       {sortedTasks.map((task: any, index: number) => (
-        <li
-          key={index}
-          onClick={() => {
-            dispatch(toggleCompletion(task.id));
-          }}
-        >
-          {task.text} {task.completed ? "completed" : "to-do"}
+        <li key={index}>
+          {task.text}{" "}
+          <span
+            onClick={() => {
+              dispatch(toggleCompletion(task.id));
+            }}
+          >
+            {task.completed ? "completed" : "to-do"}{" "}
+          </span>
+          <input
+            value={task.priority}
+            type="number"
+            onChange={e =>
+              dispatch(setPriority(task.id, parseInt(e.target.value)))
+            }
+          />
         </li>
       ))}
     </>
