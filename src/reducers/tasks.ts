@@ -6,7 +6,6 @@ const INITIAL_STATE = [
 ];
 // tasks reducer
 export const tasks = (state = INITIAL_STATE, action: any) => {
-  console.log(action);
   switch (action.type) {
     case "TOGGLE_COMPLETE":
       return state.map((task: any) => {
@@ -22,6 +21,20 @@ export const tasks = (state = INITIAL_STATE, action: any) => {
         }
         return task;
       });
+    case "ADD_TASK":
+      let newID = 0;
+      state.forEach(task => {
+        if (newID <= task.id) {
+          newID = task.id + 1;
+        }
+      });
+      const newItem = {
+        id: newID,
+        completed: false,
+        text: action.task.text,
+        priority: action.task.priority
+      };
+      return [...state, newItem];
     default:
       return state;
   }
