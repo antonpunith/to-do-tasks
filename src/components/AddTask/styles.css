@@ -6,3 +6,10 @@
 .add-task input {
   margin: 0 1rem;
 }
+
+.input-todo {
+  width: 15rem;
+}
+.input-priority {
+  width: 3rem;
+}

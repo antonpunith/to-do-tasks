@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 //actions
-import { toggleCompletion, setPriority } from "../../actions";
+import { toggleCompletion, setPriority, deleteTask } from "../../actions";
 // styles
 import "./styles.css";
 
@@ -33,7 +33,7 @@ const TaskList = (props: any) => {
             <input
               type="checkbox"
               checked={task.completed}
-              onClick={() => {
+              onChange={() => {
                 dispatch(toggleCompletion(task.id));
               }}
             ></input>
@@ -50,6 +50,9 @@ const TaskList = (props: any) => {
                 }
               />
             </label>
+            <button onClick={() => dispatch(deleteTask(task.id))}>
+              Delete
+            </button>
           </div>
         </li>
       ))}

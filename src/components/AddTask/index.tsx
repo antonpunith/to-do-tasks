@@ -23,9 +23,9 @@ const AddTask = (props: any) => {
         }}
       >
         <label>
-          Value
+          TODO
           <input
-            width={100}
+            className="input-todo"
             value={text}
             onChange={e => {
               setText(e.target.value);
@@ -37,7 +37,7 @@ const AddTask = (props: any) => {
         <label>
           Priority
           <input
-            width="2"
+            className="input-priority"
             value={priority}
             type="number"
             onChange={e => {
@@ -46,7 +46,7 @@ const AddTask = (props: any) => {
           />
         </label>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Add Task</button>
       </form>
     </>
   );

@@ -9,7 +9,7 @@ export const tasks = (state = INITIAL_STATE, action: any) => {
   switch (action.type) {
     case "TOGGLE_COMPLETE":
       return state.map((task: any) => {
-        if (action.id === task.id) {
+        if (action.taskId === task.id) {
           task.completed = !task.completed;
         }
         return task;
@@ -35,6 +35,9 @@ export const tasks = (state = INITIAL_STATE, action: any) => {
         priority: action.task.priority
       };
       return [...state, newItem];
+
+    case "DELETE_TASK":
+      return state.filter(task => task.id !== action.taskId);
     default:
       return state;
   }

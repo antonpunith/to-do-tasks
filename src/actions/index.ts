@@ -1,7 +1,7 @@
 const toggleCompletion = (taskId: number) => {
   return {
     type: "TOGGLE_COMPLETE",
-    id: taskId
+    taskId
   };
 };
 
@@ -9,6 +9,13 @@ const addTask = (task: any) => {
   return {
     type: "ADD_TASK",
     task
+  };
+};
+
+const deleteTask = (taskId: number) => {
+  return {
+    type: "DELETE_TASK",
+    taskId
   };
 };
 
@@ -28,4 +35,4 @@ const setPriority = (id: number, priority: number) => {
   };
 };
 
-export { toggleCompletion, sortTask, setPriority, addTask };
+export { toggleCompletion, sortTask, setPriority, addTask, deleteTask };
