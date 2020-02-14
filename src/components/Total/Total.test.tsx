@@ -4,7 +4,7 @@ import Total from "./index";
 
 afterEach(cleanup);
 
-it("renders profile", () => {
+it("renders Total component", () => {
   const { asFragment } = render(
     <Total
       tasks={[{ id: 2, text: "Go shopping", completed: false, priority: 3 }]}

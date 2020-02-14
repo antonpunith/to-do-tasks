@@ -1,26 +1,17 @@
 import React from "react";
+// utils
+import { sortTaskByText, sortTaskbyPriority } from "../../utils";
 // styles
 import "./styles.css";
 
 const TaskList = (props: any) => {
-  // reducers and actions available from props
   const { tasks, sort, toggleCompletion, setPriority, deleteTask } = props;
   let sortedTasks = tasks;
   if (sort.sortBy === "name") {
-    sortedTasks = tasks.sort((taska: any, taskb: any) => {
-      if (taska.text < taskb.text) {
-        return -1;
-      }
-      if (taska.text > taskb.text) {
-        return 1;
-      }
-      return 0;
-    });
+    sortedTasks = tasks.sort(sortTaskByText);
   }
   if (sort.sortBy === "priority") {
-    sortedTasks = tasks.sort((taska: any, taskb: any) => {
-      return taska.priority - taskb.priority;
-    });
+    sortedTasks = tasks.sort(sortTaskbyPriority);
   }
 
   return (

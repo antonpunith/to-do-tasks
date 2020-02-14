@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-//actions
-import { addTask } from "../../actions";
+
 // styles
 import "./styles.css";
 
 const AddTask = (props: any) => {
-  const { dispatch } = props;
+  const { addTask } = props;
   const [text, setText] = useState("");
   const [priority, setPriority] = useState(0);
   return (
@@ -16,7 +14,7 @@ const AddTask = (props: any) => {
         onSubmit={e => {
           e.preventDefault();
           if (text.trim()) {
-            dispatch(addTask({ text, priority }));
+            addTask({ text, priority });
             setText("");
             setPriority(0);
           }
@@ -52,4 +50,4 @@ const AddTask = (props: any) => {
   );
 };
 
-export default connect()(AddTask);
+export default AddTask;

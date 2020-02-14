@@ -1,30 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
-// actions
-import { sortTask } from "../../actions";
+import React, { FC } from "react";
 // styles
 import "./styles.css";
 
-const SortOrder = (props: any) => {
-  const { dispatch } = props;
+const SortOrder: FC<{ sortTask: (name: string) => void }> = props => {
+  const { sortTask } = props;
   return (
     <div className="sort-bar">
-      <button
-        onClick={() => {
-          dispatch(sortTask("name"));
-        }}
-      >
-        Sort by Name
-      </button>
-      <button
-        onClick={() => {
-          dispatch(sortTask("priority"));
-        }}
-      >
-        Sort by Priority
-      </button>
+      <button onClick={() => sortTask("name")}>Sort by Name</button>
+      <button onClick={() => sortTask("priority")}>Sort by Priority</button>
     </div>
   );
 };
 
-export default connect()(SortOrder);
+export default SortOrder;
