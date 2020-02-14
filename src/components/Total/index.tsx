@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 // styles
 import "./styles.css";
 
@@ -16,8 +15,4 @@ const Total = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return { ...state };
-};
-
-export default connect(mapStateToProps)(Total);
+export default Total;

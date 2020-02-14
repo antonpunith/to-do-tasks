@@ -1,4 +1,5 @@
-// initial state
+// initial static state
+// would be replaced by data from server in real world
 const INITIAL_STATE = [
   { id: 1, text: "Water the plants", completed: false, priority: 2 },
   { id: 2, text: "Go shopping", completed: false, priority: 3 },
